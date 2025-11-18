@@ -1,16 +1,85 @@
-# React + Vite
+# Nike Shoes Store (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Nike-themed storefront built with React and Vite. Includes product listing, search & filters, wishlist, cart with sidebar, quickview modal, and authentication UI (Sign In/Sign Up). Checkout is wired for Razorpay on the client.
 
-Currently, two official plugins are available:
+## 🚀 Stack
+- React 19 + Vite 7
+- CSS (custom) + Font Awesome icons
+- Optional: Supabase Auth (email/password)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📁 Project Structure
+```
+nike_shoes_hcj/
+├─ nike-react/           # React app root
+│  ├─ public/img/        # Static images
+│  └─ src/
+│     ├─ App.jsx         # Main app, auth views, cart/wishlist/quickview
+│     ├─ style.css       # Global styles (site + auth + modals)
+│     ├─ data.js         # Products
+│     └─ main.jsx        # Entry
+└─ README.md             # This file
+```
 
-## React Compiler
+## ✨ Features
+- Home hero and sections (New Arrivals, Best Collection, About)
+- Search, price/category sort, and filters
+- Wishlist with sidebar modal
+- Cart with sidebar modal and quantity controls
+- Product Quickview modal
+- Auth UI: Sign In / Sign Up (React components)
+- Checkout button prepared for Razorpay
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🔐 Authentication (Supabase)
+Auth is implemented via Supabase client if configured. Provide these env vars in `nike-react/.env`:
 
-## Expanding the ESLint configuration
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+If not configured, ensure the app code handles fallback as needed.
+
+## 💳 Checkout (Razorpay)
+The Checkout button opens Razorpay on the client. Update your key in `App.jsx` (or refactor to use an env var):
+
+```
+// Example env if you refactor
+VITE_RAZORPAY_KEY=rzp_test_xxxxxxxxx
+```
+
+Production setups should create orders server-side and verify signatures.
+
+## 🧑‍💻 Local Development
+
+1) Move to the React app and install dependencies
+```
+cd nike-react
+npm install
+```
+
+2) Start the dev server
+```
+npm run dev
+```
+
+3) Build and preview
+```
+npm run build
+npm run preview
+```
+
+## 📸 Screenshots
+Add your screenshots (e.g., auth, cart, wishlist) to this section.
+
+## 📦 Scripts (package.json)
+- `dev` – start Vite dev server
+- `build` – production build
+- `preview` – preview the production build
+- `lint` – run ESLint
+
+## 🛠️ Notes
+- Fixed header is used; content sections account for the top offset.
+- Modals (cart/wishlist/quickview) are mounted conditionally by React and styled as flex overlays.
+
+## 📄 License
+Open-source for learning and personal projects. Attribute if you reuse.
