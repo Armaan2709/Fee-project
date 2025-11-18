@@ -157,7 +157,7 @@ function App() {
     const amountInPaise = Math.round(cartTotal * 100);
 
     const options = {
-      key: 'rzp_test_RgwtlVbIyu86xi', // Razorpay test key
+      key: import.meta.env.VITE_RAZORPAY_KEY, // Razorpay key from environment
       amount: amountInPaise.toString(),
       currency: 'INR',
       name: 'Nike Shoes Store',
